@@ -1,0 +1,4 @@
+﻿  19_Task3.cpp
+C:\Users\antbf\source\repos\19_Task3\19_Task3\19_Task3.cpp(21,21): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+C:\Users\antbf\source\repos\19_Task3\19_Task3\19_Task3.cpp(24,26): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+  19_Task3.vcxproj -> C:\Users\antbf\source\repos\19_Task3\Debug\19_Task3.exe

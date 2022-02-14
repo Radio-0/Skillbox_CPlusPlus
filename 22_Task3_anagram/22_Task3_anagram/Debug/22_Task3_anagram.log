@@ -1,0 +1,4 @@
+﻿  22_Task3_anagram.cpp
+C:\Users\antbf\source\repos\22_Task3_anagram\22_Task3_anagram\22_Task3_anagram.cpp(21,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\22_Task3_anagram\22_Task3_anagram\22_Task3_anagram.cpp(26,20): warning C4018: <: несоответствие типов со знаком и без знака
+  22_Task3_anagram.vcxproj -> C:\Users\antbf\source\repos\22_Task3_anagram\Debug\22_Task3_anagram.exe

@@ -1,0 +1,21 @@
+# ninja log v5
+9	507	665237333	CMakeProject1/CMakeFiles/CMakeProject1.dir/gpu.cpp.obj	8974e4c0b0834623
+15	512	665237333	CMakeProject1/CMakeFiles/CMakeProject1.dir/cpu.cpp.obj	384dc82781446c55
+7	541	665237333	CMakeProject1/CMakeFiles/CMakeProject1.dir/ram.cpp.obj	6c5133c06c46cafe
+4	557	665237333	CMakeProject1/CMakeFiles/CMakeProject1.dir/disk.cpp.obj	ef68601f5c5bfb7d
+1	559	665237333	CMakeProject1/CMakeFiles/CMakeProject1.dir/CMakeProject1.cpp.obj	5c525f261faa481
+1	9	0	clean	9992afb1f91dc381
+5	499	665237369	CMakeProject1/CMakeFiles/CMakeProject1.dir/gpu.cpp.obj	8974e4c0b0834623
+1	500	665237369	CMakeProject1/CMakeFiles/CMakeProject1.dir/CMakeProject1.cpp.obj	5c525f261faa481
+10	505	665237369	CMakeProject1/CMakeFiles/CMakeProject1.dir/ram.cpp.obj	6c5133c06c46cafe
+14	513	665237369	CMakeProject1/CMakeFiles/CMakeProject1.dir/kbd.cpp.obj	ccf322de09744a84
+17	528	665237369	CMakeProject1/CMakeFiles/CMakeProject1.dir/cpu.cpp.obj	384dc82781446c55
+7	549	665237369	CMakeProject1/CMakeFiles/CMakeProject1.dir/disk.cpp.obj	ef68601f5c5bfb7d
+550	840	665237369	CMakeProject1/CMakeProject1.exe	d7adf019acb7d752
+7	653	665237905	CMakeProject1/CMakeFiles/CMakeProject1.dir/src/cpu.cpp.obj	53133a5b99b964e1
+4	654	665237905	CMakeProject1/CMakeFiles/CMakeProject1.dir/src/ram.cpp.obj	f3cbcf4088eed43b
+1	663	665237905	CMakeProject1/CMakeFiles/CMakeProject1.dir/CMakeProject1.cpp.obj	5aea34e7875b944d
+16	671	665237905	CMakeProject1/CMakeFiles/CMakeProject1.dir/src/kbd.cpp.obj	f13521c182f106b4
+10	673	665237905	CMakeProject1/CMakeFiles/CMakeProject1.dir/src/gpu.cpp.obj	66e07a5cb5e54b5d
+12	674	665237905	CMakeProject1/CMakeFiles/CMakeProject1.dir/src/disk.cpp.obj	9025fbdaa200b2ac
+675	869	665237905	CMakeProject1/CMakeProject1.exe	2d8a3b7adaa206a0

@@ -1,0 +1,5 @@
+﻿  21_Task4_rpg.cpp
+C:\Users\antbf\source\repos\21_Task4_rpg\21_Task4_rpg\21_Task4_rpg.cpp(34,23): warning C4101: len_date: неиспользованная локальная переменная
+C:\Users\antbf\source\repos\21_Task4_rpg\21_Task4_rpg\21_Task4_rpg.cpp(68,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\antbf\source\repos\21_Task4_rpg\21_Task4_rpg\21_Task4_rpg.cpp(134,23): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  21_Task4_rpg.vcxproj -> C:\Users\antbf\source\repos\21_Task4_rpg\Debug\21_Task4_rpg.exe

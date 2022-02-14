@@ -1,0 +1,3 @@
+﻿  20_Task4.cpp
+C:\Users\antbf\source\repos\20_Task4\20_Task4\20_Task4.cpp(57,25): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  20_Task4.vcxproj -> C:\Users\antbf\source\repos\20_Task4\Debug\20_Task4.exe

@@ -1,0 +1,7 @@
+﻿  25_Task2_Sim_Computer.cpp
+25_Task2_Sim_Computer.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl input(void)" (?input@@YAXXZ) в функции _main.
+25_Task2_Sim_Computer.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl display(void)" (?display@@YAXXZ) в функции _main.
+25_Task2_Sim_Computer.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl computer(void)" (?computer@@YAXXZ) в функции _main.
+25_Task2_Sim_Computer.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl save(void)" (?save@@YAXXZ) в функции _main.
+25_Task2_Sim_Computer.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl load(void)" (?load@@YAXXZ) в функции _main.
+C:\Users\antbf\source\repos\25_Task2_Sim_Computer\Debug\25_Task2_Sim_Computer.exe : fatal error LNK1120: неразрешенных внешних элементов: 5
