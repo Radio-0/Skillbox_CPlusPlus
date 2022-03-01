@@ -1,2 +1,4 @@
 ﻿  26_Task1_AudioPlayer.cpp
+C:\Users\antbf\source\repos\26_Task1_AudioPlayer\26_Task1_AudioPlayer\26_Task1_AudioPlayer.cpp(58,31): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\26_Task1_AudioPlayer\26_Task1_AudioPlayer\26_Task1_AudioPlayer.cpp(63,31): warning C4018: <: несоответствие типов со знаком и без знака
   26_Task1_AudioPlayer.vcxproj -> C:\Users\antbf\source\repos\26_Task1_AudioPlayer\Debug\26_Task1_AudioPlayer.exe

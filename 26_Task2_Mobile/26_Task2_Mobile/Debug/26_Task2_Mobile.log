@@ -1,0 +1,6 @@
+﻿  26_Task2_Mobile.cpp
+C:\Users\antbf\source\repos\26_Task2_Mobile\26_Task2_Mobile\26_Task2_Mobile.cpp(59,31): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\26_Task2_Mobile\26_Task2_Mobile\26_Task2_Mobile.cpp(64,31): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\26_Task2_Mobile\26_Task2_Mobile\26_Task2_Mobile.cpp(77,31): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\26_Task2_Mobile\26_Task2_Mobile\26_Task2_Mobile.cpp(82,31): warning C4018: <: несоответствие типов со знаком и без знака
+  26_Task2_Mobile.vcxproj -> C:\Users\antbf\source\repos\26_Task2_Mobile\Debug\26_Task2_Mobile.exe

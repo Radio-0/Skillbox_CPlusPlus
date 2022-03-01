@@ -8,80 +8,98 @@
 Команда stop прекращает воспроизведение текущей записи, если таковая имеется.Об этом выводится сообщение в консоль.Два раза остановить воспроизведение невозможно, так что команда должна срабатывать только в первом случае.
 Команда exit — выход из программы.*/
 
-#pragma warning(disable : 4996)
 #include <iostream>
 #include <string>
-#include <ctime>
+#include <vector>
+
+class Player;
+
+enum Status
+{
+    PLAY,
+    PAUSE,
+    STOP
+};
 
 class Track {
-public:
     std::string name{};
     double duration{};
     std::string dateCteate{};
+public:
+    Track(std::string name, double duration, std::string dateCteate) : name(name), duration(duration), dateCteate(dateCteate) {}
+    std::string getName(){ 
+        return name;
+    }
+    double getDuration(){
+        return duration;
+    }
+    std::string getDate(){
+        return dateCteate;
+    }
 };
 
 class Player {
-public:
-    static const int sizeTrackList = 5;
-    Track songs[sizeTrackList]{
-        Track{"qwer", 5, "02.12.2022"},
-        Track{"asdf", 6, "02.12.2022"},
-        Track{"zxcv", 7, "02.12.2022"},
-        Track{"tyui", 8, "02.12.2022"},
-        Track{"ghjk", 9, "02.12.2022"},
+    std::vector<Track> songs{
+        Track("qwer", 5, "20.02.2022"),
+        Track("asdf", 6, "20.02.2022"),
+        Track("zxcv", 7, "20.02.2022"),
+        Track("tyui", 8, "20.02.2022"),
+        Track("ghjk", 9, "20.02.2022")
     };
-    
-    int play(int numb) {
+    Status statusTrack = STOP;
+    int numbTrack = 0;
+public:
+    void setNumb(int value) {
+        numbTrack = value;
+    }
+    void play() {
         std::string song_name;
-        int numbTrack = 0;
-        if (numb == (sizeTrackList + 1)) {
+        if (statusTrack == STOP) {
             std::cout << "Track list:\n";
-            for (int i = 0; i < sizeTrackList; i++) {
-                std::cout << songs[i].name << "\n";
+            for (int i = 0; i < songs.size(); i++) {
+                std::cout << songs[i].getName() << "\n";
             }
             std::cout << "Enter name song: ";
             std::cin >> song_name;
-            for (int i = 0; i < sizeTrackList; i++) {
-                if (song_name == songs[i].name) {
-                    numbTrack = i;
-                    std::cout << songs[i].name << " " << songs[i].duration << " " << songs[i].dateCteate << "\n";
+            for (int i = 0; i < songs.size(); i++) {
+                if (song_name == songs[i].getName()) {
+                    setNumb(i);
+                    statusTrack = PLAY;
+                    std::cout << songs[i].getName() << " " << songs[i].getDuration() << " " << songs[i].getDate() << "\n";
                     break;
                 }
             }
         }
-        return numbTrack;
     }
-    int pause(int numb, int status) {
-        if (numb != (sizeTrackList + 1) && status != 1) {
-            std::cout << "Track " << songs[numb].name << " on pause\n";
-            status = 1;
+    void pause() {
+        if (statusTrack != PAUSE && statusTrack != STOP) {
+            std::cout << "Track " << songs[numbTrack].getName() << " on pause\n";
+            statusTrack = PAUSE;
         }            
-        else if (status == 1)
-            std::cout << "Track " << songs[numb].name << " is on pause\n";
+        else if (statusTrack == PAUSE)
+            std::cout << "Track " << songs[numbTrack].getName() << " is on pause\n";
         else
             std::cout << "Track is not play\n";
-        return status;
     }
-    int next(int numb) {
-        int shuffle = (sizeTrackList + 1);
-        if (numb != (sizeTrackList + 1)) {
+    void next() {
+        int shuffle;
+        if (statusTrack != STOP) {
             do {
-                shuffle = rand() % sizeTrackList + 0;
-            } while (shuffle == numb);
-            std::cout << songs[shuffle].name << " " << songs[shuffle].duration << " " << songs[shuffle].dateCteate << "\n";
+                shuffle = rand() % songs.size() + 0;
+            } while (shuffle == numbTrack);
+            setNumb(shuffle);
+            std::cout << songs[shuffle].getName() << " " << songs[shuffle].getDuration() << " " << songs[shuffle].getDate() << "\n";
         }
         else
             std::cout << "Track is not play\n";
-        return shuffle;
     }
-    int stop(int numb) {
-        if (numb != (sizeTrackList + 1)) {
-            std::cout << "Track " << songs[numb].name << " stopped\n";
-            numb = (sizeTrackList + 1);
+    void stop() {
+        if (statusTrack != STOP) {
+            std::cout << "Track " << songs[numbTrack].getName() << " stopped\n";
+            statusTrack = STOP;
         }
         else
             std::cout << "Track is not play\n";
-        return numb;        
     }
 };
 
@@ -89,22 +107,20 @@ int main()
 {
     std::string command;
     Player* player = new Player();
-    int numbTrack = (player->sizeTrackList) + 1;
-    int statusTrack = 0;
     while (command != "exit") {
         std::cout << "Enter command (play, pause, next, stop, exit): ";
         std::cin >> command;
         if (command == "play") {
-            numbTrack = player->play(numbTrack);
+            player->play();
         }
-        if (command == "pause") {
-            statusTrack = player->pause(numbTrack, statusTrack);
+        else if (command == "pause") {
+            player->pause();
         }
-        if (command == "next") {
-            numbTrack = player->next(numbTrack);
+        else if (command == "next") {
+            player->next();
         }
-        if (command == "stop") {
-            numbTrack = player->stop(numbTrack);
+        else if (command == "stop") {
+            player->stop();
         }
     }
     delete player;
