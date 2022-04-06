@@ -1,0 +1,6 @@
+﻿  27_Task3-Company.cpp
+C:\Users\antbf\source\repos\27_Task3-Company\27_Task3-Company\27_Task3-Company.cpp(60,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\27_Task3-Company\27_Task3-Company\27_Task3-Company.cpp(71,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\27_Task3-Company\27_Task3-Company\27_Task3-Company.cpp(100,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\27_Task3-Company\27_Task3-Company\27_Task3-Company.cpp(106,27): warning C4018: <: несоответствие типов со знаком и без знака
+  27_Task3-Company.vcxproj -> C:\Users\antbf\source\repos\27_Task3-Company\Debug\27_Task3-Company.exe
