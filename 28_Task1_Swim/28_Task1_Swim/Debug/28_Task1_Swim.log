@@ -1,0 +1,7 @@
+﻿  28_Task1_Swim.cpp
+C:\Users\antbf\source\repos\28_Task1_Swim\28_Task1_Swim\28_Task1_Swim.cpp(71,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\28_Task1_Swim\28_Task1_Swim\28_Task1_Swim.cpp(79,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\28_Task1_Swim\28_Task1_Swim\28_Task1_Swim.cpp(91,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\28_Task1_Swim\28_Task1_Swim\28_Task1_Swim.cpp(92,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\antbf\source\repos\28_Task1_Swim\28_Task1_Swim\28_Task1_Swim.cpp(102,23): warning C4018: <: несоответствие типов со знаком и без знака
+  28_Task1_Swim.vcxproj -> C:\Users\antbf\source\repos\28_Task1_Swim\Debug\28_Task1_Swim.exe
