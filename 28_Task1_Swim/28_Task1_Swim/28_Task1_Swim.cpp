@@ -10,36 +10,23 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include <mutex>
 using namespace std;
 
-#define DISTANCE 100
-#define NUMB_SWIM 6
+const int distanceMax = 100;
+const int numbSwim = 6;
+
+mutex output;
 
 class Swim {
     string name = "none";
     float speed = 0.0;
     float time = 0.0;
-    float distance = 0.0;
 public:
     Swim (string inName, float inSpeed) : name(inName), speed(inSpeed){
         name = inName;
         speed = inSpeed;
-    }
-    float getDistance() {
-        return distance;
-    }
-    void setDistance(float get) {
-        distance = speed * 1 + get;
-        if (distance >= DISTANCE) {
-            distance = DISTANCE;
-            setTime(speed);
-        }            
-    }
-    void setTime(float speed) {
-        time = DISTANCE / speed;
-    }
-    void setTimeTemp(float temp) {
-        time = temp;
+        time = distanceMax / inSpeed;
     }
     string getName() {
         return name;
@@ -52,39 +39,35 @@ public:
     }
 };
 
-void info_output(string name, float distance) {
-    this_thread::sleep_for(chrono::seconds(1));
-    cout << name << " " << distance << "m\n";
+void info_output(Swim swim) {
+    float distance = 0;
+    while (distance < distanceMax){
+        this_thread::sleep_for(chrono::seconds(1));
+        output.lock();
+        distance += swim.getSpeed();
+        if (distance > distanceMax) {
+            distance = distanceMax;
+        }
+        cout << swim.getName() << " " << distance << "m\n";
+        output.unlock();
+    } 
 }
 
 int main(){
     vector<Swim> swimmers;
-    string name;
-    float speed;
-    for (int i = 0; i < NUMB_SWIM; i++) {
+    for (int i = 0; i < numbSwim; i++) {
+        string name;
+        float speed;
         cout << "Enter swimmer name and speed: ";
         cin >> name >> speed;
         swimmers.push_back(Swim(name, speed));
     }
-    float minSpeed = swimmers[0].getSpeed();
-    int numbMin = 0;
-    for (int i = 0; i < swimmers.size(); i++) {
-        if (minSpeed > swimmers[i].getSpeed()) {
-            minSpeed = swimmers[i].getSpeed();
-            numbMin = i;
-        }
+    thread info[numbSwim];
+    for (int i = 0; i < numbSwim; i++) {
+        info[i] = thread(info_output, swimmers[i]);
     }
-    thread info[NUMB_SWIM];
-    while (swimmers[numbMin].getDistance() != DISTANCE) {
-        for (int i = 0; i < swimmers.size(); i++) {
-            info[i] = thread(info_output, swimmers[i].getName(), swimmers[i].getDistance());
-            swimmers[i].setDistance(swimmers[i].getDistance());
-        }
-        for (int i = 0; i < NUMB_SWIM; i++) {
-
-            info[i].join();
-        }
-        cout << endl;
+    for (int i = 0; i < numbSwim; i++) {
+        info[i].join();
     }
     cout << "Finish\n";
     for (int i = 0; i < swimmers.size(); i++) {
