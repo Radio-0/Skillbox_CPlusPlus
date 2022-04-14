@@ -1,0 +1,5 @@
+﻿  28_Task3_Kitchen.cpp
+C:\Users\antbf\source\repos\28_Task3_Kitchen\28_Task3_Kitchen\28_Task3_Kitchen.cpp(24,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\antbf\source\repos\28_Task3_Kitchen\28_Task3_Kitchen\28_Task3_Kitchen.cpp(41,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\antbf\source\repos\28_Task3_Kitchen\28_Task3_Kitchen\28_Task3_Kitchen.cpp(57,27): warning C4018: <: несоответствие типов со знаком и без знака
+  28_Task3_Kitchen.vcxproj -> C:\Users\antbf\source\repos\28_Task3_Kitchen\Debug\28_Task3_Kitchen.exe
