@@ -1,0 +1,57 @@
+{
+  "Ford v Ferrari": {
+    "Carroll Shelby": "Matt Damon",
+    "Country": "USA",
+    "Data": "30.08.2019",
+    "Director": "James Mangold",
+    "Ken Miles": "Christian Bale",
+    "Noah Jupe": "Peter Miles",
+    "Producer": "John Bernard",
+    "Screenwriter": "Jez Butterworth",
+    "Studio": "20th Century Fox Film Corporation"
+  },
+  "The Brothers Grimm": {
+    "Angelika": "Lena Headey",
+    "Country": "USA",
+    "Data": "26.08.2005",
+    "Director": "Terry Gilliam",
+    "Jacob Grimm": "Heath Ledger",
+    "Producer": "Daniel Bobker",
+    "Screenwriter": "Ehren Kruger",
+    "Studio": "Dimension Films",
+    "Wilhelm Grimm": "Matt Damon"
+  },
+  "The Dark Knight": {
+    "Bruce Wayne": "Christian Bale",
+    "Country": "USA",
+    "Data": "14.08.2008",
+    "Director": "Christopher Nolan",
+    "Harvey Dent": "Aaron Eckhart",
+    "Joker": "Heath Ledger",
+    "Producer": "Christopher Nolan",
+    "Screenwriter": "Jonathan Nolan",
+    "Studio": "DC Comics"
+  },
+  "The Imaginarium of Doctor Parnassus": {
+    "Country": "United Kingdom",
+    "Data": "22.05.2009",
+    "Director": "Terry Gilliam",
+    "Doctor Parnassus": "Christopher Plummer",
+    "Producer": "Amy Gilliam",
+    "Screenwriter": "Terry Gilliam",
+    "Studio": "Davis-Films",
+    "Tony": "Heath Ledger",
+    "Valentina": "Lily Cole"
+  },
+  "The Prestige": {
+    "Alfred Borden": "Christian Bale",
+    "Country": "United Kingdom",
+    "Data": "17.10.2006",
+    "Director": "Christopher Nolan",
+    "Producer": "Christopher Nolan",
+    "Robert Angier": "Hugh Jackman",
+    "Sarah": "Rebecca Hall",
+    "Screenwriter": "Jonathan Nolan",
+    "Studio": "Newmarket Productions"
+  }
+}

@@ -1,0 +1,103 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "32_Task2_FilmsDate",
+					"childIndexes" : 
+					[
+						2
+					],
+					"jsonFile" : "directory-32_Task2_FilmsDate-Debug-52de835caff4872f956d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "32_Task2_FilmsDate",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "32_Task2_FilmsDate/nlohmann_json",
+					"jsonFile" : "directory-32_Task2_FilmsDate.nlohmann_json-Debug-b096199b93e281823f5d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "32_Task2_FilmsDate/nlohmann_json"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "32_Task2_FilmsDate",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "nlohmann_json",
+					"parentIndex" : 0
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "32_Task2_FilmsDate::@64a2b436db80f36d5640",
+					"jsonFile" : "target-32_Task2_FilmsDate-Debug-d16f6df0b458b7c77ff9.json",
+					"name" : "32_Task2_FilmsDate",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/antbf/source/repos/32_Task2_FilmsDate/out/build/x64-debug",
+		"source" : "C:/Users/antbf/source/repos/32_Task2_FilmsDate"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

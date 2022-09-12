@@ -1,0 +1,4 @@
+Name: nlohmann_json
+Description: JSON for Modern C++
+Version: 3.10.5
+Cflags: -IC:/Users/antbf/source/repos/32_Task1_FilmInfo/out/install/x64-debug/include

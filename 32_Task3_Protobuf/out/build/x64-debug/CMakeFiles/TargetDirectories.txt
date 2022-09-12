@@ -1,0 +1,5 @@
+C:/Users/antbf/source/repos/32_Task3_Protobuf/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/antbf/source/repos/32_Task3_Protobuf/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/antbf/source/repos/32_Task3_Protobuf/out/build/x64-debug/32_Task3_Protobuf/CMakeFiles/32_Task3_Protobuf.dir
+C:/Users/antbf/source/repos/32_Task3_Protobuf/out/build/x64-debug/32_Task3_Protobuf/CMakeFiles/edit_cache.dir
+C:/Users/antbf/source/repos/32_Task3_Protobuf/out/build/x64-debug/32_Task3_Protobuf/CMakeFiles/rebuild_cache.dir

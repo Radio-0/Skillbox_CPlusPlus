@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "32_Task1_FilmInfo/nlohmann_json",
+		"source" : "32_Task1_FilmInfo/nlohmann_json"
+	}
+}

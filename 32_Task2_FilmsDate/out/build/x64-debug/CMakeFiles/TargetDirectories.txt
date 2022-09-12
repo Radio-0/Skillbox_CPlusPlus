@@ -1,0 +1,7 @@
+C:/Users/antbf/source/repos/32_Task2_FilmsDate/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/antbf/source/repos/32_Task2_FilmsDate/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/antbf/source/repos/32_Task2_FilmsDate/out/build/x64-debug/32_Task2_FilmsDate/CMakeFiles/32_Task2_FilmsDate.dir
+C:/Users/antbf/source/repos/32_Task2_FilmsDate/out/build/x64-debug/32_Task2_FilmsDate/CMakeFiles/edit_cache.dir
+C:/Users/antbf/source/repos/32_Task2_FilmsDate/out/build/x64-debug/32_Task2_FilmsDate/CMakeFiles/rebuild_cache.dir
+C:/Users/antbf/source/repos/32_Task2_FilmsDate/out/build/x64-debug/32_Task2_FilmsDate/nlohmann_json/CMakeFiles/edit_cache.dir
+C:/Users/antbf/source/repos/32_Task2_FilmsDate/out/build/x64-debug/32_Task2_FilmsDate/nlohmann_json/CMakeFiles/rebuild_cache.dir
