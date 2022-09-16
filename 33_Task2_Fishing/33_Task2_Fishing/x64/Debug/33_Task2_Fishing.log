@@ -1,0 +1,3 @@
+﻿  33_Task2_Fishing.cpp
+C:\Users\antbf\source\repos\33_Task2_Fishing\33_Task2_Fishing\33_Task2_Fishing.cpp(37,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  33_Task2_Fishing.vcxproj -> C:\Users\antbf\source\repos\33_Task2_Fishing\x64\Debug\33_Task2_Fishing.exe
