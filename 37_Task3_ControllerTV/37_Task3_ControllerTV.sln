@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "37_Task3_ControllerTV", "37_Task3_ControllerTV\37_Task3_ControllerTV.vcxproj", "{BDB12AD5-5287-4D91-86F0-DF6C876B219E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDB12AD5-5287-4D91-86F0-DF6C876B219E}.Debug|x64.ActiveCfg = Debug|x64
+		{BDB12AD5-5287-4D91-86F0-DF6C876B219E}.Debug|x64.Build.0 = Debug|x64
+		{BDB12AD5-5287-4D91-86F0-DF6C876B219E}.Release|x64.ActiveCfg = Release|x64
+		{BDB12AD5-5287-4D91-86F0-DF6C876B219E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E1EFF5A-115D-4650-8BC2-E9A49AC56FCA}
+	EndGlobalSection
+EndGlobal
