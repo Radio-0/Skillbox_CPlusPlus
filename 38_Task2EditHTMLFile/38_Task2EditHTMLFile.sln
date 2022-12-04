@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "38_Task2EditHTMLFile", "38_Task2EditHTMLFile\38_Task2EditHTMLFile.vcxproj", "{349C5FDD-8661-4B0E-8820-68136537C5F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{349C5FDD-8661-4B0E-8820-68136537C5F3}.Debug|x64.ActiveCfg = Debug|x64
+		{349C5FDD-8661-4B0E-8820-68136537C5F3}.Debug|x64.Build.0 = Debug|x64
+		{349C5FDD-8661-4B0E-8820-68136537C5F3}.Release|x64.ActiveCfg = Release|x64
+		{349C5FDD-8661-4B0E-8820-68136537C5F3}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F8174A7-4A88-420F-AA67-6E60440EB022}
+	EndGlobalSection
+EndGlobal
