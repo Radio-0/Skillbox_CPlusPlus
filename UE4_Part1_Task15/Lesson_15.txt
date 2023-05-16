@@ -1,0 +1,23 @@
+#include <iostream>
+
+void OddOrNot(int a, bool x)
+{
+    const int b = a;
+    for(int i = x ? 0 : 1; i <= b; i += 2)
+    {
+        std::cout << " i = " << i << std::endl;
+    }
+}
+
+int main()
+{
+    std::cout << "Enter number for Search ";
+    int N;
+    std::cin >> N;
+    std::cout << "Enter true / false ";
+    bool x;    
+    std::cin >> std::boolalpha;   
+    std::cin >> x; 
+    
+  OddOrNot(N, x);
+}

@@ -1,0 +1,53 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <iomanip>
+#include <ctime>
+#include <Windows.h>
+
+using std::cout;
+
+
+int GetDay()
+{
+    time_t t;
+
+    time(&t);
+
+     return localtime(&t)->tm_mday;    
+}
+
+
+int main()
+{
+    const int Size = 4;
+    
+    int Sum = 0;
+    
+    int D =  GetDay() % Size;
+    
+    int array[Size][Size];
+
+    int Line;
+    
+    for (int i = 0; i < Size; i++)
+    {
+        cout << "Line_"<< i << ":  ";
+        
+        for (int j = 0; j < Size; j++)
+        {            
+            array[i][j] = i + j;
+            
+            cout  << array[i][j] << ' ';           
+            
+            if (D == i)
+            {
+                Line = i;
+                
+                Sum += array[i][j];                
+            } 
+        }
+        cout << "\n";
+    }
+    
+    cout <<"--------\n" << "\nDay: " << GetDay() << "\nCurrent Line: " << Line << "\nSum: " << Sum;
+}
