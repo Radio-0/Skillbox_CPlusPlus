@@ -1,0 +1,106 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <cmath>
+
+bool check_correct(std::string number){
+	bool correct = true;
+  int point = 0;
+  for(int i = 0; i <= number.length(); i++){
+    if(number[i] == 'e' || number[i] == '+' || number[i+1] == '-'
+        || (number[i] < '0' && number[i] > '9')
+        || (number.length() == 2 && number[0] == '-' && number[1] == '.')
+        || (number.length() == 1 && (number[i] == '-' || number[i] == '.'))){
+      correct = false;
+      break;
+    }    
+    if(number[i] == '.'){           
+      point++;
+    }
+    if(point > 1){
+      correct = false;
+      break;
+    }
+  }  
+  if(correct == false) std::cout << "No\n";
+  else std::cout << "Yes\n";
+  return correct;
+}
+
+int check_point_left(std::string number){
+	int left;
+	for(int i = 0; i < number.length(); i++){
+		if(number[i] == '.'){
+			left = number.find('.');
+			break;
+		}
+		else left = 0;
+	}
+	return left;
+}
+
+int check_point_right(std::string number){
+	int right;
+	for(int i = 0; i < number.length(); i++){
+		if(number[i] == '.'){
+			right = number.rfind('.') + 1;
+			break;
+		}
+		else right = 0;
+	}
+	return right;
+}
+
+int main() {
+  std::string number1, number2;
+  
+  bool correct1 = false, correct2 = false, more = false, less = false, equal = false;
+  int first_left, first_right, second_left, second_right;
+  while(!correct1){
+  	std::cout << "Enter first number: ";
+  	std::cin >> number1;
+  	correct1 = check_correct(number1);
+	}  
+	while(!correct2){
+  	std::cout << "Enter second number: ";
+  	std::cin >> number2;
+  	correct2 = check_correct(number2);
+	}
+	first_left = check_point_left(number1);
+	first_right = check_point_right(number1);
+	second_left = check_point_left(number2);
+	second_right = check_point_right(number2);
+	if(!correct1 || !correct2) std::cout << "Incorrect";
+	else if(first_left == 0 && second_left == 0){
+		if((stoi(number1.substr(0, number1.length())) > stoi(number2.substr(0, number2.length())))) std::cout << "More";
+  	else if((stoi(number1.substr(0, number1.length())) < stoi(number2.substr(0, number2.length())))) std::cout << "Less";
+    else if(abs(stoi(number1.substr(0,  number1.length()))) == 0 && abs(stoi(number2.substr(0,  number2.length()))) == 0) std::cout << "Equal";	
+	}
+  else if(first_left == 0){
+    if(abs(stoi(number1.substr(0,  number1.length()))) == 0 && stoi(number2.substr(0, number2.length())) < 0) std::cout << "More";
+    else if(abs(stoi(number1.substr(0,  number1.length()))) == 0 && (stoi(number2.substr(0, number2.length())) > 0 ||
+          (stoi(number2.substr(0, second_left)) == 0 && stoi(number2.substr(second_right, number2.length())) > 0))) std::cout << "Less";
+    else std::cout << "Equal";
+  }
+  else if(second_left == 0){
+    if(abs(stoi(number2.substr(0,  number2.length()))) == 0 && stoi(number1.substr(0, number1.length())) < 0) std::cout << "Less";
+    else if(abs(stoi(number2.substr(0,  number2.length()))) == 0 && (stoi(number1.substr(0, number1.length())) > 0 ||
+          (stoi(number1.substr(0, first_left)) == 0 && stoi(number1.substr(first_right, number1.length())) > 0))) std::cout << "More";
+    else std::cout << "Equal";
+  }
+  else if((first_left != 0 && second_left != 0) && 
+        (stoi(number1.substr(0, first_left)) == 0 && stoi(number2.substr(0, second_left)) == 0) && 
+        (stoi(number1.substr(first_right, number1.length())) == 0 && stoi(number2.substr(second_right, number2.length())) == 0)) 
+      std::cout << "Equal";
+	else if((first_left > second_left) || 
+					((stoi(number1.substr(first_right, number1.length())) == stoi(number2.substr(second_right, number2.length()))) && 
+          (first_right > second_right)) || 
+					(stoi(number1.substr(0, first_left)) > stoi(number2.substr(0, second_left)))) std::cout << "More";
+					
+	else if((first_left < second_left) || 
+					((stoi(number1.substr(first_right, number1.length())) == stoi(number2.substr(second_right, number2.length())) &&	
+          (first_right < second_right))) ||
+					(stoi(number1.substr(0, first_left)) < stoi(number2.substr(0, second_left)))) std::cout << "Less";
+					
+	else std::cout << "Equal";
+}

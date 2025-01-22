@@ -1,0 +1,18 @@
+#include <iostream>
+
+void evendigits(unsigned long long n, int a){
+  if((n%10)%2 == 0)
+    a++;
+  n /= 10;
+  if(n > 0)
+    evendigits(n, a);
+  else std::cout << a;
+}
+
+int main() {
+  int ans = 0;
+  unsigned long long num;
+  std::cout << "Enter long long number: ";
+  std::cin >> num;
+  evendigits(num, ans);
+}

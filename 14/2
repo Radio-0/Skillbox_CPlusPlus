@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+
+bool check_win(std::string str_first, std::string str_second, std::string str_third, char symbol){		//проверка победы по символам и строкам
+	bool won;
+	for(int i=0; i<3; i++){
+		if((str_first[i] == symbol && str_second[i] == symbol && str_third[i] == symbol) ||
+			(str_first[0] == symbol && str_second[1] == symbol && str_third[2] == symbol) ||
+			(str_third[0] == symbol && str_second[1] == symbol && str_first[2] == symbol) ||
+			(str_first[0] == symbol && str_first[1] == symbol && str_first[2] == symbol) ||
+			(str_second[0] == symbol && str_second[1] == symbol && str_second[2] == symbol) ||
+			(str_third[0] == symbol && str_third[1] == symbol && str_third[2] == symbol)){
+			won = true;
+		}
+	}
+	return won;
+}
+
+int main()
+{
+	std::string first, second, third;	//поле игры
+	bool won_X = false, won_O = false, incorrect = false, nobody = false;
+  int count_X = 0, count_O = 0;
+	std::cout << "Enter field:\n";
+	std::cin >> first >> second >> third;
+	char x = 'X', o = 'O';
+  for(int i=0;i <3; i++){
+    if(first[i] == 'X') ++count_X;
+    if (second[i] == 'X') ++count_X;
+    if (third[i] == 'X') ++count_X;    
+    if(first[i] == 'O') ++count_O;
+    if (second[i] == 'O') ++count_O;
+    if (third[i] == 'O') ++count_O;
+  }
+  std::cout << count_X << " " << count_O << "\n";
+	while (!won_X && !won_O && !incorrect && !nobody) {
+		for(int i=0; i<3; i++){      
+			if(first.length() != 3 || second.length() != 3 || third.length() != 3||		//проверка на корректность
+				(first[i] != '.' && first[i] != 'X' && first[i] != 'O') ||
+				(second[i] != '.' && second[i] != 'X' && second[i] != 'O') ||
+				(third[i] != '.' && third[i] != 'X' && third[i] != 'O')){		
+				incorrect = true;
+				break;
+			}	
+		}
+    won_X = check_win(first, second, third, x);
+		won_O = check_win(first, second, third, o);   
+		if(won_X) break;
+		else if(won_O) break;	
+		else nobody = true;
+	}
+  if((won_X && count_X < count_O) || (won_O && count_X > count_O) || (won_X && won_O)){
+    incorrect = true;
+  }
+	if(incorrect) std::cout << "Incorrect";
+	else if (won_X) std::cout << "Petya won";
+	else if (won_O)	std::cout << "Wanya won"; 
+	else std::cout << "Nobody!";	
+}

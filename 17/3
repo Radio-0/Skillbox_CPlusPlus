@@ -1,0 +1,28 @@
+#include <iostream>
+
+bool check(char* x, char* y){
+  bool find = false;
+  int i = 0;
+  while(*(y+i) != '\0'){
+    if(*(y+i) == *(x+i))
+      find = true;
+    else find = false;
+    i++;
+  }
+  return find;
+}
+
+int main() {
+  bool f = false;
+  char str[] = "Hello world";
+  char a[] = "Hell";
+  char b[] = "moto";
+  if(check(str, a) == true)
+    std::cout << "true";
+  else std::cout << "false";
+  std::cout << " ";
+  if(check(str, b) == true)
+    std::cout << "true";
+  else std::cout << "false";  
+  return 0;
+}

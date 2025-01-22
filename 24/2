@@ -1,0 +1,81 @@
+/*Задание 2. Реализация программы напоминания о днях рождения
+Реализуйте простую программу по вычислению ближайшего дня рождения.
+В начале программы пользователь последовательно вводит данные о днях рождения своих друзей: вводит имя друга и саму дату рождения полностью, включая месяц и год, в формате год/месяц/день. Сигналом окончания ввода дней рождения является “end” введённое в качестве имени.
+После этого программа вычисляет ближайший день рождения по отношению к текущему времени и выводит его на экран вместе с именем в удобном, локальном формате - месяц/день. Если день рождения уже был в этом году, данные о пользователе пропускаются. Если у кого-то из друзей день рождения сегодня, то в консоль выводится специальное сообщение об этом. Учтите, что таких сообщений может быть несколько, ведь сразу несколько людей могут иметь дни рождения в один день.
+Советы и рекомендации
+Для подсчёта ближайшего дня используйте данные из структуры даты std::tm.*/
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <ctime>
+
+struct friends{
+  std::string name;
+  std::string date;
+};
+
+int main() {
+  int day, month, year;
+  friends f_struct;
+  std::time_t rawtime;
+  std::tm* date_now;
+
+  std::time (&rawtime);
+  date_now = std::localtime (&rawtime);  
+  std::string name;
+  std::vector<friends> friends_vec;
+  std::cout << "Enter friends data: \n";
+  while(true){
+    std::cout << "Name: ";
+    std::cin >> name;
+    if(name == "end") break;
+    f_struct.name = name;
+    std::cout << "Date (YY/MM/DD): ";
+    std::cin >> f_struct.date;
+
+    /*check correct date*/
+    year = std::stoi(f_struct.date.substr(0, 2));
+    month = std::stoi(f_struct.date.substr(3, 2));
+    day = std::stoi(f_struct.date.substr(6, 2));
+    if (year < 00 || year > 15) {
+			std::cout << "Incorrect year";
+			continue;
+		}
+		if (month < 1 || month > 12) {
+			std::cout << "Incorrect month";
+			continue;
+		}
+		if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+			&& (day < 1 || day > 31)) {
+			std::cout << "Incorrect day";
+			continue;
+		}
+		if((month == 4 || month == 6 || month == 9 || month == 11) && (day < 1 || day > 30)) {
+			std::cout << "Incorrect day";
+			continue;
+		}
+		if((month == 2 && (day < 1 || day > 28)) || (month == 2 && (year == 2024 || year == 2020 || year == 2016 || year == 2012
+			|| year == 2008 || year == 2004 || year == 2000) && (day < 1 || day > 29))) {
+			std::cout << "Incorrect day";
+			continue;
+		}
+    friends_vec.push_back(f_struct);
+  }
+
+  int month_now = date_now->tm_mon + 1;
+  int day_now = date_now->tm_mday;
+  for(int i = 0; i < friends_vec.size(); i++){
+    month = std::stoi(friends_vec[i].date.substr(3, 2));
+    day = std::stoi(friends_vec[i].date.substr(6, 2));    
+    if(month >= month_now){
+      if(day == day_now){
+        std::cout << friends_vec[i].name << " birthday today!\n";
+      }
+      else if(day > day_now){
+        std::cout << friends_vec[i].name << " birthday " << month << "/" << day << "\n";
+      }
+    }
+  }
+  return 0; 
+}

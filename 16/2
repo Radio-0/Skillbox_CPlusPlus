@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+
+int main() {
+  std::string int_number, fract_number;
+  double result;
+  std::cout << "Enter integer part of number: ";
+  std::getline(std::cin, int_number);
+  std::cout << "Enter fractional part of number: ";
+  std::getline(std::cin, fract_number);
+  result = std::stod(int_number + "." + fract_number);
+  std::cout << "The resulting number: " <<  result << std::endl;
+  return 0;
+}

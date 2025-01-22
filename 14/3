@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+
+bool check_length(int length, bool correct){		//проверка длины
+	bool correct_length = correct;
+	if(length < 1 || length > 64){	 
+		correct_length = false; 			
+	}
+	return correct_length;
+}
+
+bool check_correct(std::string address, bool correct){	//проверки корректности
+	bool correct_part = correct;
+	for(int i = 0; i < address.length()-1; i++){
+		if(((address[i] != '-' && address[i] != '.') && address[i] < '0') || 
+			(address[i] > '9' && address[i] < 'A') || 
+			(address[i] > 'Z' && address[i] < 'a') || address[i] > 'z'){
+			correct_part = false;						
+		}
+	}
+	return correct_part;
+}
+
+int main() {
+  std::string address, address1, address2;
+  std::cout << "Enter email-adress: ";
+  std::cin >> address;
+  bool correct = true;
+  int point = 0, count = 0;
+  
+  for(int i = 0; i <= address.length(); i++){
+  	if(address[i] == '@'){	//проверка на количество @
+  		count++;
+  		if(count > 1){
+  			correct = false;
+  			break;
+			}
+		}
+  	if(address[0] == '@'|| address[address.length()-1] == '@'){	//проверка на положение @
+  		correct = false;
+  		break;
+		}
+		if(address[0] == '.'|| address[address.length()-1] == '.' ||	//проверка на положение и количество '.'
+			(address[i] == '.' && address[i+1] == '.')){
+			correct = false;
+  		break;
+		}
+		else{
+			while(address[point] != '@') {
+				point++;
+			}
+			address1 = address.substr(0, point);
+			correct = check_length(address1.length(), correct);		//проверка длины первой части
+			if(!correct) break;
+			address2 = address.substr(point+1, address.length()-1);
+			correct = check_length(address2.length() + 1, correct);		//проверка длины второй части
+			if(!correct) break;
+			correct = check_correct(address1, correct);		//проверки корректности первой части
+			if(!correct) break;
+			for(int j = 0; j < address1.length()-1; j++){
+				if(address1[j] == '!' || address1[j] == '#' || address1[j] == '$' || address1[j] == '%' ||
+					address1[j] == '&' || address1[j] == 39 || address1[j] == '*' || address1[j] == '+' ||
+					address1[j] == '/' || address1[j] == '=' || address1[j] == '?' || address1[j] == '^' ||
+					address1[j] == '_' || address1[j] == '`' || address1[j] == '{' || address1[j] == '|' ||
+					address1[j] == '}' || address1[j] == '~') correct = true;
+			}
+			correct = check_correct(address2, correct);		//проверки корректности второй части
+			if(!correct) break;			
+		}
+  }	
+	std::cout << address1 << " " << address2 << "\n";
+  if(!correct) std::cout << "No";
+  else std::cout << "Yes";
+}
+
+

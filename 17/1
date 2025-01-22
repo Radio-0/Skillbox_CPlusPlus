@@ -1,0 +1,17 @@
+#include <iostream>
+
+void change(int* pi, int* pj){
+  int temp = *pi;
+  *pi = *pj;
+  *pj = temp;
+}
+
+int main() {
+  int a = 10;
+  int b = 3;
+  int* pa = &a;
+  int* pb = &b;
+  change(pa, pb);
+  std::cout << a << " " << b;
+  return 0;
+}

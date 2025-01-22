@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+int main() {
+  std::string calc;
+  std::stringstream expression;
+  char operation;
+  double numb1, numb2, result;
+  std::cout << "Enter math string: \n";
+  std::getline(std::cin, calc);
+  expression << calc;
+  expression >> numb1 >> operation >> numb2;
+
+  if(operation == '+') result = numb1 + numb2;
+  else if(operation == '-') result = numb1 - numb2;
+  else if(operation == '*') result = numb1 * numb2;
+  else if(operation == '/') result = numb1 / numb2;
+  std::cout << "Result = " << result;
+  return 0;
+}

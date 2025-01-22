@@ -1,0 +1,63 @@
+/*Задание 1. Реализация программы учёта времени
+Используя функцию получения текущего времени std::time, реализуйте простейший менеджер учёта времени.
+Пользователь взаимодействует с программой с помощью команд:
+Команда begin начинает отслеживание новой задачи. После ввода этой команды пользователь должен ввести название задачи, над которой он планирует сейчас работать. Если уже была начата какая-то другая задача, предыдущая должна быть автоматически завершена и начата новая.
+Команда end заканчивает отслеживание текущей задачи. Если текущей начатой задачи нет, то команда ничего не делает.
+Команда status выводит на экран информацию о всех законченных задачах и времени, которое было на них потрачено. Также выводится название текущей выполняемой задачи, если таковая имеется.
+Команда exit выходит из программы.
+Советы и рекомендации
+Тип std::time_t принимайте за секунды и с помощью него рассчитывайте время в часах, которое было затрачено.*/
+
+#include <iostream>
+#include <ctime>
+#include <string>
+#include <math.h>
+#include <vector>
+
+struct tasks{
+  std::string task;
+  double diff;
+};
+
+int main() {
+  std::string command;
+  std::string task;
+  std::time_t start, the_end;
+  tasks task_struct;
+  std::vector<tasks> tasks_vec;
+
+  do{
+    std::cout << "Enter command (begin, status, end, exit): ";
+    std::cin >> command;
+
+    if(command == "begin"){
+      std::cout << "Enter task: ";
+      if(task.size() != 0){
+        the_end = std::time(nullptr);
+        task_struct.diff = abs(std::difftime(start, the_end));
+        tasks_vec.push_back(task_struct);
+        task.clear();
+      }          
+      std::cin >> task_struct.task;
+      start = std::time(nullptr);     
+    }
+    else if(command == "end"){
+      the_end = std::time(nullptr);
+      task_struct.diff = abs(std::difftime(start, the_end));
+      tasks_vec.push_back(task_struct);
+      task.clear();
+    }
+    else if(command == "status"){
+      if(task.size() != 0){
+        std::cout << task << "\n";
+      }
+      if(tasks_vec.size() != 0){
+        for(int i = 0; i < tasks_vec.size(); i++){
+          std::cout << tasks_vec[i].task << " " << tasks_vec[i].diff << "\n";
+        }
+      }
+    }
+    
+  }while(command != "exit");
+  return 0;
+} 

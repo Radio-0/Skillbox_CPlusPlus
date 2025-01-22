@@ -1,0 +1,99 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+enum Automaton{
+  LIGHT_HOUSE = 1,
+  LIGHT_GARDEN = 2,
+  HEATING_HOUSE = 4,
+  HEATING_PLUMBING = 8,
+  CONDITIONER = 16
+};
+
+int main() {
+  std::string data;
+  std::string motion, light_house;
+  int state_automaton = 0;
+  int temp_inside, temp_outside;
+  int temp_light;
+  int hour = 0;
+  int correct_hour;
+  while(hour != 48){
+    int new_state_automaton = state_automaton;
+    temp_inside = 0;
+    temp_outside = 0;
+    motion = "";
+    light_house = "";
+    data = "";
+    correct_hour = hour % 24;
+    
+    std::cout << "\n\tTime " << correct_hour << ":00" << std::endl;
+    std::cout << "Enter data:\n";
+    std::cout << "outside temperature (degree C);\n";
+    std::cout << "inside temperature (degree C);\n";
+    std::cout << "presence of movement (yes/no);\n";
+    std::cout << "presence of the included light (on/off).\n";
+    std::getline(std::cin, data);
+    std::cout << "Data: " << data <<std::endl;
+    std::stringstream par_data(data);
+    par_data >> temp_outside >> temp_inside >> motion >> light_house;
+    
+    if(light_house == "on"){
+      if(!(state_automaton & LIGHT_HOUSE)){
+        new_state_automaton |= LIGHT_HOUSE;
+        std::cout << "Light in house is ON\n";
+        if(correct_hour <= 16)
+          temp_light = 5000;
+        else if(correct_hour >= 20)
+          temp_light = 2700;
+        else 
+          temp_light = 5000 - (correct_hour - 16) * (5000 - 2700) / 4;
+        std::cout << "Color light: " << temp_light << std::endl;
+      }
+    }
+    else if(state_automaton & LIGHT_HOUSE){
+      new_state_automaton &= ~LIGHT_HOUSE;
+      std::cout << "Light in house is OFF\n";
+    }
+
+    if((correct_hour > 16 || correct_hour < 5) && (motion == "yes" || motion == "y") && !(state_automaton & LIGHT_GARDEN)){
+      new_state_automaton |= LIGHT_GARDEN;
+      std::cout << "Light in garden is ON\n";
+    }
+    else if(((correct_hour <= 16 && correct_hour >= 5) || (motion == "no" || motion == "n")) && (state_automaton & LIGHT_GARDEN)){
+      new_state_automaton &= ~LIGHT_GARDEN;
+      std::cout << "Light in garden is OFF\n";
+    }
+
+    if(temp_inside < 22 && !(state_automaton & HEATING_HOUSE)){
+      new_state_automaton |= HEATING_HOUSE;
+      std::cout << "Heating in house is ON\n";
+    }
+    else if(temp_inside >= 25 && (state_automaton & HEATING_HOUSE)){
+      new_state_automaton &= ~HEATING_HOUSE;
+      std::cout << "Heating in house is OFF\n";
+    }
+
+    if(temp_outside < 0 && !(state_automaton & HEATING_PLUMBING)){
+      new_state_automaton |= HEATING_PLUMBING;
+      std::cout << "Heating water pipe is ON\n";
+    }
+    else if(temp_outside > 5 && (state_automaton & HEATING_PLUMBING)){
+      new_state_automaton &= ~HEATING_PLUMBING;
+      std::cout << "Heating water pipe is OFF\n";
+    }
+
+    if(temp_inside >= 30 && !(state_automaton & CONDITIONER)){
+      new_state_automaton |= CONDITIONER;
+      std::cout << "Conditioner: ON\n";
+    }
+    if(temp_inside <= 25 && (state_automaton & CONDITIONER)){
+      new_state_automaton &= ~CONDITIONER;
+      std::cout << "Conditioner: OFF\n";
+    }
+
+    state_automaton = new_state_automaton;
+    hour++;
+  }
+  return 0;
+}

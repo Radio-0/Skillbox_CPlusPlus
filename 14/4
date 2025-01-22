@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+
+bool check_number(std::string address, bool correct){
+	bool correct_number = correct;
+	if(std::stoi(address) > 255 || std::stoi(address) < 0){
+  	correct_number = false;
+	}
+	return correct_number;
+}
+
+int main() {
+  std::string address;
+	std::string address1, address2, address3, address4;
+  std::cout << "Enter IP-adress: ";
+  std::cin >> address;
+  bool correct = true;
+  int count = 0;
+  
+  for(int i = 0; i <= address.length(); i++){
+  	if(address[0] == '.'|| address[address.length()-1] == '.' ||	//проверка на положение и количество '.'
+			(address[i] == '.' && address[i+1] == '.')){
+			correct = false;
+  		break;
+		}
+  	if(address[i] == '.'){	//проверка на количество '.'
+  		count++;
+  		if(count > 3){
+  			correct = false;
+  			break;
+			}
+		}
+  }
+  address1 = address.substr(0, address.find('.'));
+  address2 = address.substr(address1.length()+1, address.find('.'));
+  address = address.substr(address1.length()+1, address.length());
+  address3 = address.substr(address2.length()+1, address.find('.'));
+  address = address.substr(address2.length()+1, address.length());
+  address4 = address.substr(address3.length()+1, address.length());
+  correct = check_number(address1, correct);
+  correct = check_number(address2, correct);
+  correct = check_number(address3, correct);
+  correct = check_number(address4, correct);
+  std::cout << address1 << " " << address2 << " " << address3 << " " << address4 << "\n";
+  if(!correct) std::cout << "No";
+  else std::cout << "Yes";
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+
+int jump(int n, int m){
+  int way = 0;
+  if(n < 0)
+    return 0;
+  if(n == 0)
+    return 1;
+
+  for(int i = 1; i <= m; i++)
+    way += jump(n - i, m);
+  return way;
+}
+
+int main() {
+  int step;
+  int max_jump;
+  std::cout << "Enter step: ";
+  std::cin >> step;
+  std::cout << "Enter max jump: ";
+  std::cin >> max_jump;
+  
+  std::cout << "Ways: " << jump(step, max_jump);
+}

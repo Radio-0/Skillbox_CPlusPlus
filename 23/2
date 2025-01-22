@@ -1,0 +1,47 @@
+/*Задание 2. Анализ заполненности вагонов в поезде
+Что нужно сделать
+В поезде всего 10 вагонов. В каждом из этих вагонов может находиться до 20-ти пассажиров — это оптимальное их количество. Проанализируйте количество людей в каждом из вагонов и сначала сообщите об излишне заполненных вагонах, далее о вагонах с пустыми пассажирскими местами. В заключении выведите общее количество пассажиров во всех вагонах.
+При старте программы пользователь вводит количество пассажиров в каждом из вагонов. Замечания о вагонах должны выводиться в стандартную консоль.
+При выполнении задания пользоваться for-циклами напрямую не разрешается, только опосредованно, через макросы.
+Советы и рекомендации
+С помощью макроса реализуйте модульный способ вызова функции-предиката над элементами массива. Сами функции-предикаты реализуйте отдельно, в виде обычных классических функций (не макросов).
+Обязательно просмотрите итоговый код после препроцессинга из CLion с помощью “Shift-Shift -> Preprocess current TU”.*/
+
+#include <iostream>
+#include <vector>
+
+#define TRAIN(train, sum, more, less, num)\
+  for(int i = 0; i < 10; i++){\
+    std::cin >> num;\
+    train[i] = num;\
+    sum += train[i];\
+    if(num > max_person) more.push_back(i+1);\
+    if(num <= 0) less.push_back(i+1);}
+    
+#define MORE_PERSON_PRINT(more)\
+  for(int i = 0; i < more.size(); i++){\
+    std::cout << more[i] << " ";}
+
+#define LESS_PERSON_PRINT(less)\
+  for(int i = 0; i < less.size(); i++){\
+    std::cout << less[i] << " ";}
+
+int main() {
+  int max_person = 20;
+  int num_person;
+  int train[10];
+  int sum = 0;
+  std::vector<int> more_person;
+  std::vector<int> less_person;
+
+  std::cout << "Enter number of person:\n";
+  TRAIN(train, sum, more_person, less_person, num_person);
+
+  std::cout << "Оvercrowded wagons: ";
+  MORE_PERSON_PRINT(more_person);
+
+  std::cout << "\nEmpty wagons: ";
+  LESS_PERSON_PRINT(less_person);
+  
+  return 0;  
+} 

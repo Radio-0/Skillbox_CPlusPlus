@@ -1,0 +1,47 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+
+int main() {
+  std::string in_data;
+  srand(time(NULL));
+  char *str = new char [1024];
+  int num_str = 0;
+  int cash[5] = {100, 500, 1000, 2000, 5000};
+  std::ofstream money("money.txt");
+  std::ifstream imoney("money.txt");
+  if(money.is_open()){
+    std::cout << "Enter amount: ";
+    std::cin >> in_data;
+    while(!imoney.eof()){
+      imoney.getline(str, 1024, '\n');
+      num_str++; 
+    }
+    if(in_data[0] == '+' && num_str != 1001){
+      int sum = std::stoi(in_data);
+      if(sum < cash[0]){
+        std::cout << "Error\n";
+        return -1;
+      }
+      for(int i = 4; i >= 0; i--){
+        while(sum){
+          if(sum > cash[i])
+          money << cash[i] << "\n";
+          sum -= cash[i];
+        }
+      }
+      
+    }
+    else if(in_data[0] == '-'){
+
+    }
+    else{
+      std::cout << "Error\n";
+      return -1;
+    }
+  }
+  else std::cout << "File is not open!\n";
+  money.close();
+  return 0;
+}

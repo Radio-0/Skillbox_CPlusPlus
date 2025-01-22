@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+
+void swapvec(std::vector<int>& vec, int* arr){
+  for(int i = 0; i < vec.size(); i++){
+    int buf = vec[i];
+    vec[i] = arr[i];
+    arr[i] = buf;
+  }
+}
+
+int main() {
+  std::vector<int> a = {1,2,3,4};
+  int b[4] = {5,6,7,8};
+  swapvec(a, b);
+  std::cout << "Vector: ";
+  for(int i = 0; i < a.size(); i++){
+    std::cout << a[i] << " ";
+  }
+  std::cout << "\nArray: ";
+  for(int i = 0; i < 4; i++){
+    std::cout << b[i] << " ";
+  }
+}

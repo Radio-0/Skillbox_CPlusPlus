@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+
+char encryptCaesar(char symbol, int number){
+	char encryptStr = symbol;
+	if(number > 0){
+		encryptStr += number;
+		if(encryptStr > 'z') encryptStr = 'a' + (symbol + number - 'z' - 1);
+		if(encryptStr > 'Z' && encryptStr < 'a') encryptStr = 'A' + (symbol + number - 'Z' - 1);
+	}
+	else {
+		encryptStr += number;
+		if(encryptStr < 'a' && encryptStr > 'Z') encryptStr = 'z' + (symbol + number - 'a' + 1);
+		if(encryptStr < 'A') encryptStr = 'Z' + (symbol + number - 'A' + 1);
+	}	
+	return encryptStr;
+}
+
+char decryptCaesar(char symbol, int number){
+	number *= -1;
+	encryptCaesar(symbol, number);
+}
+
+int main(){
+	char strSymbol;
+	std::string str = "The quick brown fox jumps over the lazy dog";
+	int numberPosition = -5;
+	for(int i=0; i<str.size(); i++){
+		if(str[i] == ' ') continue;
+		else {
+			char strSymbol = str[i];
+			strSymbol = encryptCaesar(strSymbol, numberPosition);
+			str[i] = strSymbol;
+		}
+	}
+	std::cout << str << "\n";
+	for(int i=0; i<str.size(); i++){
+		if(str[i] == ' ') continue;
+		else {
+			char strSymbol = str[i];
+			strSymbol = decryptCaesar(strSymbol, numberPosition);
+			str[i] = strSymbol;
+		}
+	}
+	std::cout << str << "\n";
+}
+

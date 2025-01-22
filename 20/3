@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+  std::string fish, river_fish;
+  int num = 0;
+  std::ifstream river("river.txt");
+  std::ofstream basket("basket.txt", std::ios::app);
+  if(river.is_open() && basket.is_open()){
+    std::cout << "Enter kind of fish: ";
+    std::cin >> fish;
+    while(!river.eof()){
+      river >> river_fish;
+      if(fish == river_fish){
+        basket << fish << "\n";
+        num++;
+      }        
+    }
+    std::cout << "Fish caught: " << num;
+  }
+  else std::cout << "File is not open!\n";
+  river.close();
+  basket.close();
+  return 0;
+}
